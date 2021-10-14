@@ -1,0 +1,128 @@
+<!-- CSS Basics: more selectors, floats, background -->
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 6 Demo</title>
+<style>
+    :root {
+        --elon-maroon: #73000a;
+    }
+    div,
+    p {
+        background-color: rgb(159, 159, 233);
+        border: 1px solid rgb(70, 70, 102);
+    }
+
+    .container {
+        height: 600px;
+        background-color: rgb(241, 173, 210);
+        background-image: url('https://images.unsplash.com/photo-1631081039345-ac52a4ae1a16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');
+        background-size: cover; /* contain, or exact size */
+        resize: both;
+        overflow: scroll;
+    }
+
+    div > p {
+        color: red;
+    }
+    div + div {
+        color: gold;
+    }
+    li {
+        color: maroon;
+    }
+    li[type="a"] {
+        color: darkgreen;
+    }
+    div::before {
+        content: "*";
+        color: red;
+    }
+    .float_left {
+        float: left;
+    }
+    .float_right {
+        float: right;
+    }
+    #hidden {
+        display: none;
+    }
+    #outer:hover > #hidden {
+        display: block;
+    }
+    .drop-cap::first-letter {
+        color: var(--elon-maroon);
+        font-family: fantasy;
+        font-size: 60pt;
+        line-height: 60%;
+        padding: 1px;
+        float: left;
+    }
+    .pull-quote {
+        float: right;
+        width: 50%;
+        color: gold;
+        border-top: black 2px solid;
+        border-bottom: black 2px solid;
+        padding-top: 20px;
+        padding-right: 10px;
+    }
+    .pull-quote::before {
+        /* I forgot to float left in class! */
+        float: left;
+        content: open-quote;
+        font-size: 64pt;
+        padding: 10px;
+        margin-top: -40px;
+    }
+</style>
+
+<body>
+    <h1>Day 6 Demo</h1>
+    <!-- Pull Quote Example -->
+    <div style="width: 400px;">
+        <p style="color: black;">
+            <span class="pull-quote">The pull quote serves to entice the readers into the article.</span>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id dui accumsan, bibendum nisi nec, ullamcorper tellus. Duis sed tempor tortor. Vestibulum non gravida erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at elit aliquet, commodo nunc sed, luctus mi. Fusce posuere purus a dictum dapibus. Nullam fringilla condimentum neque, in pretium metus finibus ut. Suspendisse eu pellentesque lectus. Maecenas sit amet massa nibh.
+        </p>
+    </div>
+    <!-- Drop Cap Example -->
+    <section>
+        <h2>Drop Cap</h2>
+        <p class="drop-cap">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id dui accumsan, bibendum nisi nec, ullamcorper tellus. Duis sed tempor tortor. Vestibulum non gravida erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at elit aliquet, commodo nunc sed, luctus mi. Fusce posuere purus a dictum dapibus. Nullam fringilla condimentum neque, in pretium metus finibus ut. Suspendisse eu pellentesque lectus. Maecenas sit amet massa nibh.</p>
+    </section>
+    <!-- CSS Selectors -->
+    <div>
+        <section class="container">
+            <!-- This is the container -->
+            <div id="outer" class="float_left">This is div 1
+                <div id="hidden">This is a div inside a div inside a div</div>
+            </div>
+            <!--
+            <div class="float_left">This is div 2</div>
+            <span>This child is in the way.</span>
+            -->
+            <div class="float_right">This is div 3</div>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id dui accumsan, bibendum nisi nec,
+                ullamcorper tellus. Duis sed tempor tortor. Vestibulum non gravida erat. Class aptent taciti sociosqu ad
+                litora torquent per conubia nostra, per inceptos himenaeos. Aenean at elit aliquet, commodo nunc sed,
+                luctus mi. Fusce posuere purus a dictum dapibus. Nullam fringilla condimentum neque, in pretium metus
+                finibus ut. Suspendisse eu pellentesque lectus. Maecenas sit amet massa nibh.
+            </p>
+        </section>
+        <section>
+            <h2>
+                Attributes
+            </h2>
+            <ul>
+                <li>first</li>
+                <li type="a">second</li>
+                <li type="a">third</li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>

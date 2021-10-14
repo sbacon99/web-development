@@ -1,0 +1,143 @@
+<!-- CSS Layouts: float layouts -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <style>
+       header {
+           border: 1px solid black;
+           background-color: darkred;
+           margin: 10px;
+           padding: 10px;
+       }
+       header > img {
+           float: left;
+           padding: 20px;
+       }
+       header > h1 {
+           float: left;
+           font-size: 65pt;
+           margin-top: 60px;
+           color: lightgreen;
+       }
+       /* Clearfix: stop the madness! */
+       header::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+       nav {
+           border: 1px solid black;
+           background-color: darkcyan;
+           margin: 10px;
+           padding: 10px;
+       }
+
+       nav > ul {
+            list-style: none;
+            margin: 0;
+       }
+
+       nav li {
+            float: left;
+            padding-right: 10px;
+       }
+       li ~ li::before {
+            content: "> ";
+            color: lightgray;
+       }
+       nav a {
+           color: white;
+       }
+       nav a:hover {
+           color: orange;
+       }
+       /* Clearfix: stop the madness! */
+       nav::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+       main {
+           border: 1px solid black;
+           background-color: darkorchid;
+           margin: 10px;
+           padding: 10px;
+       }
+       /* Clearfix: stop the madness! */
+       main::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+       article {
+           border: 1px solid black;
+           background-color: gold;
+           margin: 10px;
+           padding: 10px;
+           float: left;
+           width: 60%;
+       }
+       section {
+           border: 1px solid black;
+           background-color: darkseagreen;
+           margin: 10px;
+           padding: 10px;
+       }
+       aside {
+           border: 1px solid black;
+           background-color: deepskyblue;
+           margin: 10px;
+           padding: 10px;
+           float: right;
+           width: 30%;
+           height: 400px;
+       }
+       footer {
+           border: 1px solid black;
+           background-color: darkgreen;
+           margin: 10px;
+           padding: 10px;
+       }
+
+    </style>
+    <title>Day 7</title>
+    <body>
+        <header>
+            <img src="iguana.jpg" alt="Our logo" height="200">
+            <h1>I Wanna Iguana</h1>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+        </nav>
+        <main>
+            <p>Main</p>
+            <article>
+                <p>Article</p>
+                <section>
+                    <h2>Section Heading</h2>
+                    <p>Content paragraph</p>
+                    <p>Content paragraph</p>
+                </section>
+                <section>
+                    <h2>Section Heading</h2>
+                    <p>Content paragraph</p>
+                    <p>Content paragraph</p>
+                </section>
+            </article>
+            <aside>
+                <p>Sidebar paragraph</p>
+                <p>Sidebar paragraph</p>
+            </aside>
+        </main>
+        <footer>
+            <p>Footer paragraph</p>
+        </footer>
+    </body>
+</html>

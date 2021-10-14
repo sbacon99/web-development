@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta charset="UTF-8">
+  <title>Day 3 Demo</title>
+  <style>
+      tr {
+          background-color: rgb(255, 255, 255);
+      }
+      td {
+          border: 1px solid darkblue;
+      }
+      th {
+          border: 1px solid rgb(211, 52, 52);
+      }
+  </style>
+  <body>
+    <header>
+        <h1>Tables</h1>
+        <a href = "#stuff">Read more about stuff below.</a> 
+    </header>
+    <table>
+        <!-- Caption -->
+        <caption>
+            Table 1: Calendar
+        </caption>
+        <!-- Headers -->
+        <tr>
+            <th>Week</th>
+            <th>Day</th>
+            <th>Assignment</th>
+        </tr>
+        <!-- Week 1 (Rows 1 and 2) -->
+        <tr>
+            <td rowspan="2">1</td>
+            <td>1</td>
+            <td rowspan="2">Chapter 1</td>
+        </tr>
+        <tr>
+            <td>2</td>
+        </tr>
+        <!-- Week 2 (Rows 3 and 4) -->
+        <tr>
+            <td rowspan="2">2</td>
+            <td>3</td>
+            <td rowspan="2">Chapter 2</td>
+        </tr>
+        <tr>
+            <td>4</td>
+        </tr>
+        <!-- Week 3 (Rows 5 and 6) -->
+        <tr>
+            <td rowspan="2">3</td>
+            <td>5</td>
+            <td>Chapter 3</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Review</td>
+        </tr>
+        <!-- Table Footer -->
+        <tr>
+            <th colspan="3">Final Exam</th>
+        </tr>
+    </table>
+    <dif id="stuff" style="background-color: rgb(66, 218, 66);">stuff</dif>
+  </body>
+</html>

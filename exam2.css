@@ -1,0 +1,181 @@
+/*
+CSC 3123 Web Development Test 2
+Sam Bacon
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+}
+p, a, tr, td, th, h2, caption {
+    color: white;
+}
+
+header {
+    /* Photo by Al Battison on Unsplash */
+    background-image: url("https://images.unsplash.com/photo-1598981553323-6d8dfe02f1b3");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1598981553323-6d8dfe02f1b3);
+    
+    /* The header should be 500 pixels tall take up and all of the width of the page.
+    It should use a hero layout.  */
+
+}
+
+header>h1 {
+    /* The name of the site, 3 Ring Fitness, should be displayed in white 55-point fantasy font
+    on top of the header image, located at the lower left. It should use a text shadow to give
+    it a slight red glow. */
+    color: white;
+    font-size: 55pt;
+    font-family: fantasy;
+    text-shadow: 5px 5px red;
+    position: absolute;
+    bottom: 200px;
+    left: 100px;
+
+}
+
+nav {
+    padding: 20px 50px;
+}
+
+nav>ul {
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    
+}
+
+nav>ul>li {
+    margin: 0;
+    padding-right: 10px;
+}
+
+nav>ul>li>a {
+    /* Navigation links should be white.
+    Optional: add a subtle red glow with a text shadow. */
+    color: white;
+    text-shadow: 5px 5px red;    
+}
+
+nav>ul>li>a:hover {
+    /* When the mouse is hovering over one of the navigation links, it should turn red.
+    Use a transition so that the color change happens gradually over 1 second. */
+    color: red;
+    transition: color 1s;
+}
+
+main {
+    width: 100%;
+    padding: 10px;
+
+    /* The background of the <main> area of the page should be a linear gradient going from 
+    black to darkred down the page. */
+
+    background: linear-gradient(black, darkred);
+
+    /* The main area of the page should use a flex layout to allow the <article> to be 
+    on the left and the <aside> with the latest photos to be on the right. */
+
+    display: flex;
+    flex-direction: row;
+
+
+}
+
+section {
+    margin: 30px;
+    padding: 20px;
+
+    /* Optional: each of the three <section> elements should be styled with a radial gradient that is 
+    darkred in the center and black at the outside. The sections should have rounded corners.*/
+    background: radial-gradient(darkred, black);
+}
+
+/* The latest photos should be displayed as a side-bar on the right of the page. */
+aside {
+    margin: 10px;
+    padding: 10px;
+  
+}
+
+.classes>ul {
+    padding: 0;
+    display: grid;
+    list-style-type: none;
+    grid-template-columns: auto auto auto;
+    
+
+    /* The unordered list of class offerings should be styled with a grid layout so that items can
+    move around depending on the width of the page. */ 
+}
+
+.classes>ul>li {
+    /* Each of the items should be displayed with slightly rounded corners and have its corresponding
+    link centered beneath. */
+
+    border-radius: 25px 25px 25px 25px;
+    text-align: center;
+
+}
+
+.classes>ul>li>figure {
+    margin: 20px 0 10px 0;
+    max-height: 180px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.classes>ul>li>figure>img {
+    width: 100%;
+}
+
+.classes>ul>li>a {
+    width: 100%;
+
+}
+
+/* The footer should be darkred with centered text. */
+footer {
+    padding: 10px;
+    text-align: center;
+    background: darkred;
+}
+
+
+/* The class schedule should be displayed with its caption centered above the table 
+in slightly larger font than default. The table should have a black background with 
+white centered text. The header should have a white line underneath.
+Optional: Alternating rows should be a very dark red with this rgb code: 36, 1, 1. */
+
+table {
+    width: 100%;
+    background-color: black;
+}
+
+table > caption {
+    text-align: center;
+    font-size: larger;
+    padding: 15px;
+}
+
+tr:nth-child(even) {
+    background: rgb(36,1,1);
+}
+
+th{
+    border-bottom: 1px solid white;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 15px;
+}

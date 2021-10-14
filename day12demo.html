@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 12</title>
+<!-- <script src="day12_demo.js"></script> -->
+
+<body>
+    <h1>Day 12 - JavaScript Part 2</h1>
+
+    <script>
+        console.log('Hello, World!');
+
+        let A = [1, -2, 3, -4, 5, "Surprise"];
+        A[10] = "surprisingerest";
+        console.log(A);
+
+        function arrayAbs(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = Math.abs(arr[i]);
+            }
+        }
+        arrayAbs(A);
+        console.log(A);
+
+        // Needlessly cool for-loop
+
+        A.forEach(
+            function (item, index) {
+                item *= 2;
+                console.log(item + " at index " + index);
+            }
+        );
+
+        // SORTING
+        console.log('----------\nSorting:');
+        // let sortMe = [10, 20, 4, 1, 14];
+        let sortMe = ['abc', 'a', 'B', 'z', 'cde'];
+        sortMe.sort();
+        // sortMe.sort(function (a, b) { return a-b; });
+        // SORT ASC with arrow function
+        // sortMe.sort((a, b) => a - b);
+        // SORT DESC with arrow function
+        // sortMe.sort((a, b) => b - a);
+        console.log(sortMe);
+
+        // CUSTOM OBJECTS
+        console.log('---------\nObjects');
+
+        let obj = {
+            name: "Ada Lovelace",
+            occupation: "Programmer",
+            favColors: ['Maroon', 'Gold',
+                         {
+                          red: 255,
+                          green: 190,
+                          blue: 0
+                        }
+                       ],
+            toString: function () {
+                return this.name + ", " + this.occupation;
+                // console.log(this.name + ", " + this.occupation);
+            }
+        }
+
+        obj.age = 36;
+        obj.printMe = function () {
+            console.log(this.name + ", " + this.occupation);
+        }
+
+        console.log(obj);
+        console.log(obj.name);
+        console.log(obj.toString());
+        obj.printMe();
+
+        // String Literals
+        let greeting = 'Hello';
+        let name = 'World';
+        let output = `${greeting}, ${name}!`;
+        console.log(output);
+
+        // Dates
+        let today = new Date();
+        let thanksgiving = new Date(2021, 11, 25);
+        console.log(today + '.... ' + thanksgiving);
+
+
+
+
+
+
+
+
+        
+    </script>
+
+</body>
+
+</html>

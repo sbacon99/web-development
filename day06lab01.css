@@ -1,0 +1,83 @@
+* {
+    font-family: Roboto, Helvetica, sans-serif;
+}
+
+.container {
+    text-align: center;
+    margin: 5px;
+    font-size: 13px;
+}
+
+h1 {
+    font-size: 16px;
+    color: #444444;
+    text-align: center;
+    
+}
+
+.offer {
+    display: inline-block;
+    width: 400px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    margin-right: 4px;
+    text-align: center;
+    border-top: #cccccc 1px solid;
+    border-bottom: #cccccc 1px solid;
+    border-left: #cccccc 1px solid;
+    border-right: #cccccc 1px solid;
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
+    border-top-left-radius: 1px;
+    border-top-right-radius: 1px;
+    box-shadow: 0px 2px 2px #dddddd, 0px 0px 5px #dddddd;
+}
+
+.offerTitle {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    background-color: #00b3b3;
+    padding: 15px;
+}
+
+.offerContents {
+    padding: 20px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-color: #fafafa;
+}
+
+table {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0px 2px 2px #dddddd, 0px 0px 5px #dddddd;
+}
+
+th {
+    font-weight: bold;
+    font-size: 12px;
+    color: #777777;
+    padding: 10px;
+    text-align: left;
+    border-bottom: #f1f1f1 1px solid;
+}
+
+td {
+    font-weight: lighter;
+    color: #444444;
+    size: 13px;
+    text-align: left;
+    border-bottom: #f1f1f1 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.finalValue {
+    font-weight: bold;
+    color: #2222ff;
+}
+

@@ -1,0 +1,82 @@
+body {
+    text-align: center;
+}
+
+h1 {
+    font-size: 44pt;
+}
+
+header {
+    width: 550px;
+    padding: 10px;
+    margin: auto;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: space-evenly;
+}
+
+#score {
+    width: 200px;
+    text-align: center;
+    font-size: 32pt;
+    color: black;
+    padding: 30px;
+}
+
+#start {
+    width: 150px;
+    padding: 10px;
+    margin: auto;
+    text-align: center;
+    font-size: 22pt;
+    background-color: blue;
+    border: 4px solid blue;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 2px 2px 4px black;
+}
+
+#start:hover {
+    background-color: white;
+    border: 4px solid blue;
+    color: blue;
+}
+
+#game {
+    width: 550px;
+    height: 300px;
+    border-radius: 20px;
+    margin: auto;
+    display: grid;
+    background: linear-gradient(white, gray);
+    box-shadow: 2px 2px 4px black;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+}
+
+.spot {
+    width: 100px;
+    height: 100px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 2px 2px 4px black;
+    text-align: center;
+    background-color: white;
+}
+
+.smiley {
+    background: url("smiley.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.frowny {
+    background: url("frowny.png");
+    background-position: center;
+    background-size: cover;
+}

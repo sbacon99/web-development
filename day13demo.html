@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 13</title>
+<script defer src="day13_demo.js"></script>
+
+<body>
+    <h1>Day 13 - JavaScript in the browser</h1>
+    <div id="myDiv">
+        <h2>Subheading</h2>
+        <p>The quick brown fox</p>
+        <ul>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ul>
+    </div>
+    <script>
+        console.log("Hello, October!");
+        document.writeln("<h2>This is really not the best way...</h2>");
+        let h1Element = document.documentElement.children[1].children[0];
+        console.log(h1Element);
+        h1Element.innerHTML = "Even Better Day 13 Demo";
+
+        let myDiv = document.getElementById("myDiv");
+        // myDiv.innerHTML = "Hello, world!";
+        // myDiv.style.backgroundColor = "blue";
+        // myDiv.style.color = "white";
+        // myDiv.style.fontSize = "64pt";
+
+        let theLIs = document.getElementsByTagName("li");
+        console.log("DEBUG: theLIs: " + theLIs.length);
+
+        for (let li of theLIs) {
+            console.log("In for loop");
+            console.log(li.innerHTML);
+        }
+        console.log("After for loop");
+
+        // Creating a new HTML element
+        var royalPurple = "rgb(100, 0, 100)"; // Royal purple??
+        let div2 = document.createElement("div");
+        div2.style.width = "300px";
+        div2.style.backgroundColor = royalPurple; // Royal purple??
+        div2.innerHTML = "I am div2";
+        div2.style.fontSize = "36pt";
+        div2.style.color = "yellow";
+
+        // Put the new element in the page
+        myDiv.append(div2);
+
+        // ------------------------------------
+        // Event Handlers
+        function onMouseOver(event) {
+            console.log("DEBUG: in event handler onMouseOver with event " + event);
+            event.target.style.backgroundColor = "pink";
+        }
+        function onMouseOut(event) {
+            event.target.style.backgroundColor = royalPurple; // Royal purple??
+        }
+        div2.addEventListener("mouseover", onMouseOver);
+        div2.addEventListener("mouseout", onMouseOut);
+
+        // ------------------------------------------
+        // Challenge: every time someone clicks the h1 tag
+        // change to a new random rgb color.
+
+        // Grab the first h1 element in the document
+        let myH1 = document.getElementsByTagName("h1")[0];
+
+        function onClick(event) {
+            let r = Math.floor(256 * Math.random());
+            let g = Math.floor(256 * Math.random());
+            let b = Math.floor(256 * Math.random());
+
+            console.log("DEBUG: myH1 = " + myH1);
+            // Build RGB string: "rgb(r, g, b)"
+            myH1.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+
+        myH1.addEventListener("click", onClick);
+
+
+
+    </script>
+</body>
+
+</html>

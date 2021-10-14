@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Hero Image</title>
+    <style>
+        body {
+           /* TODO: add code here */
+            display: grid;
+            grid-template-columns: 150px auto 200px;
+            grid-template-rows: 300px 400px 50px;
+            grid-template-areas: 
+                "head head head"
+                "nav article aside"
+                "foot foot foot"
+        }
+
+        header {
+            background: black;
+              /* Use "linear-gradient" to add a darken background effect to the image */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("painter_small.png");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+           /* TODO: add code here */
+            grid-area: head;
+            
+        }
+
+        nav {
+            background: rgb(52, 46, 44);
+            color: white;
+            padding: 10px;
+           /* TODO: add code here */
+            grid-area: nav;
+            
+        }
+
+        article {
+            background: rgb(99, 97, 77);
+            color: white;
+            padding: 10px;
+           /* TODO: add code here */
+            grid-area: article;
+           
+        }
+
+        aside {
+            background: rgb(52, 46, 44);
+            color: white;
+            padding: 10px;
+           /* TODO: add code here */
+            grid-area: aside;
+        }
+
+        .hero-text {
+           text-align: center;
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           transform: translate(-50%, -50%);
+           color: white;
+        }
+
+        nav a {
+            color: rgb(211, 192, 161);
+        }
+
+        footer {
+            background: rgb(52, 46, 44);
+            color: white;
+            text-align: center;
+            padding: 10px;
+           /* TODO: add code here */
+            grid-area: foot;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="hero-text">
+            <h1>I am Jane Doe.</h1>
+            <p>And I'm a painter.</p>
+        </div>
+    </header>
+    <nav>
+        <h2>Navigation</h2>
+        <ul>
+            <li><a href="#">One</a></li>
+            <li><a href="#">Two</a></li>
+            <li><a href="#">Three</a></li>
+        </ul>
+    </nav>  
+    <article>
+        <h1>Welcome</h1>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin imperdiet, augue ut ultrices sodales, nisl neque feugiat magna, in molestie nisl metus vel nibh. Vivamus pretium orci sit amet pharetra gravida. Nullam pulvinar mauris sed vulputate ultricies. Suspendisse at velit pharetra, porttitor ligula pretium, porttitor sapien. In ac vulputate metus. Donec odio lectus, iaculis vel mauris et, vehicula scelerisque velit. Vestibulum imperdiet diam a finibus placerat. Mauris nisl risus, maximus ac bibendum sit amet, molestie ut libero. Nulla porttitor aliquam augue, vitae vulputate odio rutrum sit amet. Sed efficitur magna non turpis dignissim, eget ornare diam rutrum.
+        </p>
+        <p>
+            Phasellus ut leo eu quam egestas fermentum. Integer eget odio iaculis, facilisis eros eu, mattis ipsum. Curabitur sed ante eu est rhoncus bibendum. Aliquam sed justo maximus, lobortis velit vitae, ultrices magna. Vivamus euismod elit neque, sit amet tincidunt orci aliquam eu. Nam id dignissim massa, sed ultricies nibh. Phasellus a efficitur lorem. In quis erat rutrum, pharetra sem ut, finibus erat.
+        </p>
+    </article>
+    <aside>
+        <h2>Recent Work</h2>
+        <p>
+            <img src="painting1.png" width="180px" alt="one of my paintings">
+        </p>
+        <p>
+            <img src="painting2.png" width="180px" alt="one of my paintings">
+        </p>
+        <p>
+            <img src="painting3.png" width="180px" alt="one of my paintings">
+        </p>
+    </aside>
+    <footer>Footer</footer>
+ </body>
+
+</html>

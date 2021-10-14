@@ -1,0 +1,92 @@
+<!-- CSS Layouts: grid layout -->
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 8</title>
+<style>
+    .grid {
+        background-color: lightgreen;
+        border: 3px solid darkgreen;
+        /* width: 800px; */
+        display: grid;
+        grid-template-columns: repeat(3, minmax(320px, 1fr));
+        /* grid-template-rows: 100px; */
+        /* justify-content:space-evenly; */
+        grid-column-gap: 20px;
+    }
+
+    .column {
+        background-color: lightpink;
+        border: 3px solid darkred;
+        padding: 10px;
+    }
+
+    #special {
+        background-color: mediumorchid;
+        grid-area: 1 / 3 / 3 / 4;
+    }
+
+    header {
+        background-color: mediumorchid;
+        grid-area: head;
+    }
+    nav {
+        background-color: mediumorchid;
+        grid-area: nav;
+    }
+    article {
+        background-color: mediumorchid;
+        grid-area: article;
+    }
+    aside {
+        background-color: mediumorchid;
+        grid-area: aside;
+    }
+    footer {
+        background-color: mediumorchid;
+        grid-area: foot;
+    }
+
+    .grid-container {
+        text-align: center;
+        display: grid;
+        grid-template-areas:
+            "head head head"
+            "nav nav nav"
+            "article article aside"
+            "foot foot foot";
+    }
+
+    /* .grid-container > * {
+        text-align: center;
+    } */
+</style>
+<body>
+    <h1>Day 8: Grid Layout</h1>
+    <div class="grid">
+        <div id="special" class="column">111111111
+        </div>
+        <div class="column">2
+        </div>
+        <div class="column">3
+        </div>
+        <div class="column">4
+        </div>
+        <div class="column">5
+        </div>
+        <div class="column">6
+        </div>
+        <div class="column">7
+        </div>
+    </div>
+    <hr>
+    <div class="grid-container">
+        <header>header</header>
+        <nav>nav</nav>
+        <article>article</article>
+        <aside>aside</aside>
+        <footer>footer</footer>
+    </div>
+</body>
+</html>

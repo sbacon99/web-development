@@ -1,0 +1,30 @@
+<!-- CSS Layouts: flexbox challenge -->
+
+<html>
+    <style>
+        div {
+            border: 3px solid darkblue;
+            background-color: lightblue;
+            color: darkblue;
+            padding: 10px;
+            margin: 10px;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+        #one {
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div id="one">First</div>
+            <div id="two">Second</div>
+            <div id="three">Third</div>
+        </div>
+    </body>
+</html>

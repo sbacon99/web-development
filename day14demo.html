@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 14</title>
+<style>
+    article {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .type1 {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        margin: 40px;
+        border: 4px solid darkgreen;
+        background-color: darkgreen;
+        color: white;
+        text-align: center;
+    }
+
+    .type2 {
+        width: 100px;
+        height: 100px;
+        padding: 20px;
+        margin: 40px;
+        border: 4px solid darkgreen;
+        background-color: white;
+        color: darkgreen;
+        text-align: center;
+    }
+    .progbar-container {
+        border: 1px solid black;
+        height: 40px;
+        width: 200px;
+    }
+    #progbar {
+        background-color: green;
+        height: 40px;
+        color: yellow;
+    }
+</style>
+
+<body>
+    <h1>Day 14 - JavaScript in the browser</h1>
+    <article>
+        <div class="type1">A</div>
+        <div class="type1">B</div>
+        <div class="type2">C</div>
+        <div class="type2">D</div>
+    </article>
+    <!-- Progress Bar -->
+    <div class=progbar-container>
+        <div id="progbar"></div>
+    </div>
+    <p>The quick brown fox jumps over the lazy dog.</p>
+
+    <script>
+        console.log("Hello, World!");
+
+        // time in milliseconds
+        let t = 2000;
+        // call function after time elapses
+        let timerId1 = setTimeout(myFunc1, t);
+
+        function myFunc1() {
+            console.log("Timer done");
+        }
+
+        let count = 0;
+        // call function repeatedly every t milliseconds
+        let timerId2 = setInterval(myFunc2, t);
+
+        function myFunc2() {
+            count++;
+            console.log("This is alert #" + count);
+
+            if (count > 5) {
+                clearInterval(timerId2);
+            }
+        }
+
+        // --------------------------------------
+        // Challenge 1: decreasing timers
+        let currTime = 4000;
+        console.log("Timer starting with time " + currTime);
+        let timerId3 = setTimeout(runDecreasing, currTime);
+
+        function runDecreasing() {
+            console.log("Timer finished with time " + currTime);
+
+            currTime -= 1000;
+
+            if (currTime > 0) {
+                // run another timer
+                timerId3 = setTimeout(runDecreasing, currTime);
+            }
+            else {
+                console.log("All done");
+            }
+        }
+
+        // ---------------------------------
+        // Modifying CSS
+        // let divs = document.getElementsByClassName("type1");
+        // console.log(divs.length);
+        // console.log(divs[0].style.getPropertyValue("background-color"));
+
+        // for (let div of divs) {
+        //     console.log(div.style.getPropertyValue("background-color"));
+        // }
+
+        // ----------------------------------
+        // Challenge 2: Progress Bar
+        let progress = 0;
+        let interval = 100;
+        let timerId4 = setInterval(function () {
+            progress += 10;
+            if (progress <= 200) {
+                let bar = document.getElementById("progbar");
+                // bar.style.setProperty("width", progress+"px");
+                bar.style.width = progress + "px";
+                console.log("Set bar width to " + progress);
+            }
+            else {
+                // let bar = document.getElementById("progbar");
+                // bar.style.textAlign = "center";
+                // bar.innerHTML = "100%";
+                clearInterval(timerId4);
+            }
+
+        }, interval)
+
+        // ---------------------
+        // CSS Rulez
+        //document.styleSheets[0].deleteRule(0);
+        //document.styleSheets[0].insertRule("p { color: blue; }")
+
+        // -----------------------
+        document.getElementsByClassName("type1")[0].classList.add("fancy");
+        // document.getElementsByClassName("type1")[0].classList.remove("fancy");
+
+        // Checking if an element has a class
+        var elements = document.getElementsByClassName("type1");
+        for (let element of elements) {
+            if (element.classList.contains("fancy")) {
+                console.log("Found a fancy element");
+            }
+        }
+
+        // -------------------------
+        // Challenge 3 - swapping classes on mouseover
+        
+        // event handler
+        function swapClasses(event) {
+            // let currElement = event.target;
+            let currElement = this;
+            
+            // check if the element that triggered the event
+            // has type1 class
+            if (currElement.classList.contains("type1")) {
+                currElement.classList.remove("type1");
+                currElement.classList.add("type2");
+            }
+            else if (currElement.classList.contains("type2")) {
+                currElement.classList.remove("type2");
+                currElement.classList.add("type1");
+            }
+        }
+
+        // find the elements to apply the event to
+        var allDivs = document.getElementsByTagName("div");
+        // loop through to apply the event to each element
+        for (let div of allDivs) {
+            div.addEventListener("mouseover", swapClasses);
+            div.addEventListener("mouseout", swapClasses);
+        }
+
+    </script>
+
+</body>
+
+</html>

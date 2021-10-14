@@ -1,0 +1,154 @@
+<!-- CSS Layouts: positioning, special effects, animations -->
+
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 9</title>
+<style>
+    body {
+        margin: 0;
+    }
+    header {
+        width: 100vw;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+         url(https://images.unsplash.com/photo-1471922694854-ff1b63b20054?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1172&q=80);
+        background-position: center center;
+        background-size: cover;
+    }
+    header > h1 {
+        color: rgb(242, 242, 151);
+        font-size: 7em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    header > h1 > .super {
+        position: relative;
+        top: -15px;
+    }
+    nav {
+        position: fixed;
+        top: 0;
+    }
+    nav > ul {
+        list-style: none;
+        display: flex;
+        background-color: rgba(131, 103, 233, 0.5);
+        width: 100vw;
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        justify-content:center;
+        margin: 0;
+        /* transform: translate(-50px); */
+
+    }
+    nav > ul > li~li {
+        margin-left: 20px;
+    }
+    nav > ul > li > a {
+        color: white;
+    }
+    nav > ul > li > a:hover {
+        color: yellow;
+    }
+    /* Challenge 2: Gradients */
+    section {
+        padding: 20px;
+    }
+    .lin-grad {
+        height: 200px;
+        width: 400px;
+        padding-top: 50px;
+        text-align: center;
+        background: linear-gradient(white, yellow);
+        border-radius: 20px 40px 60px 0;
+        /* border-top-left-radius: 20px;
+        border-top-right-radius: 20px; */
+        box-shadow: 10px 10px 50px black ;
+        margin: auto;
+    }
+    .rad-grad {
+        height: 400px;
+        width: 600px;
+        padding: 20px;
+        background: radial-gradient(at 20% 20%, white, darkgreen);
+    }
+    /* Challenge 3: Wiggle Animation */
+    .wiggle {
+        font-size: 3em;
+        color: darkgreen;
+        animation-duration: .2s;
+        animation-iteration-count: 20;
+        animation-name: wiggle-anim;
+    }
+    @keyframes wiggle-anim {
+        0% {
+
+        }
+        25% {
+            transform: rotate(1deg);
+        }
+        75% {
+            transform: rotate(-1deg);
+        }
+        100% {
+            transform: rotate(0);
+        }
+    }
+
+    /* Challenge 4: Transition */
+    .outer {
+        width: 500px;
+        height: 200px;
+        border: 1px solid black;
+    }
+    .fill {
+        width: 0;
+        height: 200px;
+        background-color: red;
+        transition-property: width;
+        transition-delay: 0.05s;
+        transition-duration: 3s;
+        transition-timing-function: ease;
+    }
+    .outer:hover > .fill {
+        width: 100%;
+    }
+</style>
+<body>
+    <header>
+        <h1><span class="super">H</span>ello, <span class="super">W</span>orld!</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>Gradient Challenge</h2>
+        <div class="rad-grad">
+            <div class="lin-grad">
+                <p>Hello, World!</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Transition Challenge</h2>
+        <div class="outer">
+            <div class="fill"></div>
+        </div>
+    </section>
+    <section>
+        <h2>Animation Challenge</h2>
+        <div class="wiggle">
+            <p>Hello, World!</p>
+        </div>
+    </section>
+</body>
+</html>
