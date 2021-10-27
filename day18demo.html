@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 18</title>
+
+<body>
+    <h1>Day 18 - JSON, AJAX</h1>
+    <h2>Weather</h2>
+    <form>
+        Zip Code: <input type="text" id="zip" name="zip">
+        <input type="submit" id="submit">
+    </form>
+
+    <script>
+        // JSON
+        let obj = {
+            name: "Gertrude",
+            age: 55,
+            city: "Boston",
+            colors: [
+                {
+                    red: 200,
+                    green: 100,
+                    blue: 50
+                },
+                {
+                    red: 10,
+                    green: 30,
+                    blue: 20
+                },
+            ]
+        }
+        console.log("Standard object: " + obj);
+
+        let myJSON = '{"name":"Gertrude", "age":55, "city":"Boston"}';
+        console.log("Basic JSON string: " + myJSON);
+
+
+        // Convert string to object
+        let myObj = JSON.parse(myJSON);
+        console.log("Converting string to object: " + myObj);
+
+        // Convert object to string
+        let s1 = JSON.stringify(obj, null, "   ");
+        console.log("Converting object to string: " + s1);
+
+
+        // Weather form
+        function getForecast(event) {
+            //event.preventDefault();
+            console.log("In getForecast...");
+            let zip = document.getElementById("zip").value;
+            console.log("Zip is " + zip);
+        }
+
+        document.getElementById("submit").addEventListener("click", getForecast);
+
+        // AJAX -------------------------
+
+        function responseReceivedHandler() {
+            console.log("handling response: " + this.responseText);
+            let weatherObj = JSON.parse(this.response);
+            let str = JSON.stringify(weatherObj, null, '     ');
+            console.log("This is the weather data: " + str);
+        }
+
+        let xhr = new XMLHttpRequest();
+        xhr.addEventListener("load", responseReceivedHandler);
+        console.log("Getting weather info for...");
+
+        let currZip = document.getElementById("zip").value;
+        xhr.open("GET", "https://wp.zybooks.com/weather.php?zip=" + currZip);
+        xhr.send();
+
+
+    </script>
+</body>
+
+</html>
