@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 19</title>
+
+<body>
+    <h1>Day 19 - Third Party Web APIs</h1>
+    <div id="weather">
+
+    </div>
+
+    <h1>NY Times Article Search</h1>
+    <form id="searchForm">
+        <p>
+            <label>Enter a single search term:</label>
+            <input type="text" id="term" required>
+        </p>
+        <input type="submit" id="search">
+    </form>
+
+    <!-- Hold the search results for NYT -->
+    <div id="searchResults"></div>
+
+    <script>
+        // NYTimes Example -------------------
+        console.log("Starting NYT example");
+        let key = "4Tui4aHz16w8t9dPG9e8T6kxBvMv3CUg";
+        let searchButton = document.getElementById("search");
+
+        // handle submit button clicked
+        searchButton.addEventListener('click', submitSearch);
+
+        function submitSearch(event) {
+            // keep form from clearing
+            event.preventDefault();
+            console.log('in submitSearch...');
+            fetchResults(event);
+        }
+
+        // Call the NY Times API and get results
+        function fetchResults(event) {
+            let searchTerm = document.getElementById("term").value;
+            let baseURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+
+            // ?api-key=YOUR_KEY&page=0&q=SEARCH_TERM&fq=document_type:("article")
+            let queryString = "?api-key=" + key;
+            queryString += "&page=0";
+            queryString += "&q=" + searchTerm;
+            queryString += '&fq=document_type:("article")';
+
+            let url = baseURL + queryString;
+
+            console.log("DEBUG: URL is " + url);
+
+            // Send the request ----------------
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", gotInfoBack);
+
+            // if we want to avoid parsing a string
+            // to get a JSON object, we can ask for
+            // JSON directly.
+            xhr.responseType = "json";
+
+            xhr.open("GET", url);
+            xhr.send();
+
+        }
+
+        function gotInfoBack() {
+            console.log("In gotInfoBack...");
+            let response = this.response;
+            console.log(JSON.stringify(response, null, '   '));
+
+            let searchResults = document.getElementById("searchResults");
+
+            let docs = this.response.response.docs;
+
+            // Loop through each search result in docs
+            for (let article of docs) {
+                let abstract = article.abstract;
+
+                let articleParagraph = document.createElement("p");
+                articleParagraph.innerHTML = abstract;
+
+                searchResults.appendChild(articleParagraph);
+
+                let separator = document.createElement("hr");
+                searchResults.appendChild(separator);
+            }
+
+        }
+
+    </script>
+
+    <script>
+        // Weather Example -------------------
+        getWeather(27244);
+
+        function getWeather(zip) {
+            let endpoint = "https://api.openweathermap.org/data/2.5/weather";
+            let apiKey = "eb85fa30fa11af44c55834b761749284";
+            let queryString = "zip=" + zip + "&units=imperial&appid=" + apiKey;
+            let url = endpoint + "?" + queryString;
+
+            var xhr = new XMLHttpRequest();
+            xhr.addEventListener("load", responseReceivedHandler);
+
+            // if we want to avoid parsing a string
+            // to get a JSON object, we can ask for
+            // JSON directly.
+            xhr.responseType = "json";
+
+            xhr.open("GET", url);
+            xhr.send();
+        }
+
+        function responseReceivedHandler() {
+            let weatherInfo = document.getElementById("weather");
+            console.log(this.response);
+            let json = this.response;
+            let mainTemp = json.main.temp;
+            let weatherDesc = json.weather[0].description;
+            let humidity = json.main.humidity;
+
+            let p1 = document.createElement("p");
+            p1.innerHTML = "Current temp: " + mainTemp + " &deg;F";
+            let p2 = document.createElement("p");
+            p2.innerHTML = "Desc: " + weatherDesc;
+            let p3 = document.createElement("p");
+            p3.innerHTML = "Humidity: " + humidity;
+
+            weatherInfo.appendChild(p1);
+            weatherInfo.appendChild(p2);
+            weatherInfo.appendChild(p3);
+        }
+
+
+    </script>
+</body>
+
+</html>
