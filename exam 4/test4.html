@@ -1,0 +1,57 @@
+<!-------------------------------
+ * CSC 3123 Web Development
+ * Test 4 - Hands-on
+ * Sam Bacon
+--------------------------------->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Test 4</title>
+<link rel="stylesheet" href="test4.css">
+<script src="test4.js"></script>
+<body>
+    <div id="container">
+        <header>
+            <h1>The Cleveland Museum of Art</h1>
+            <h2>Exhibit Viewer</h2>
+        </header>
+        <form>
+            <div class="widgets">
+                <label for="keyword" class="textLabel">Search term:</label>
+                <span class="error" id="keywordErr" hidden></span>
+                <input type="text" name="keyword" id="keyword" class="textbox">
+            </div>
+
+            <!-- TODO: fill in HTML for a dropdown list to hold the 4 types of art.  -->
+
+            <div class="widgets">
+                <label for="type">Type:</label>
+                <select id="type">
+                    <option value="Photograph">Photograph</option>
+                    <option value="Painting">Painting</option>
+                    <option value="Drawing">Drawing</option>
+                    <option value="Tapestry">Tapestry</option>
+                  </select>
+            </div>
+
+            <div class="widgets">
+                <label for="created_after">Created after (year):</label>
+                <span class="error" id="createdAfterErr" hidden></span>
+                <input type="text" name="created_after" id="created_after">
+            </div>
+            <div class="widgets">
+                <label for="has_image">Must include image:</label>
+                <input type="checkbox" name="has_image" id="hasImage" checked>
+            </div>
+            <div class="widgets">
+                <label for="range" class="textLabel">Number results (1-50):</label>
+                <input type="range" name="range" id="range" min="1" max="50" value="10">
+            </div>
+            <input type="submit" value="Search" id="search">
+        </form>
+        <div id="output">
+        </div>
+    </div>
+</body>
+
+</html>

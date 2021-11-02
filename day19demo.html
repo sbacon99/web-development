@@ -73,10 +73,10 @@
 
             let searchResults = document.getElementById("searchResults");
 
-            let docs = this.response.response.docs;
+            let articles = this.response.response.docs;
 
             // Loop through each search result in docs
-            for (let article of docs) {
+            for (let article of articles) {
                 let abstract = article.abstract;
 
                 let articleParagraph = document.createElement("p");
