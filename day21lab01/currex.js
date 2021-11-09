@@ -188,3 +188,103 @@ var exchangeRates = {
 };
 
 /* Your solution goes here */
+
+// creating drop-down options
+
+$(document).ready(function() {
+
+  var opt = document.createElement('option');
+  opt.value = "";
+  opt.id = "default";
+  opt.innerText = "Select currency";
+  $("#toCurrency").append(opt);
+
+  var opt2 = document.createElement('option');
+  opt2.innerText = "Bitcoin (BTC)";
+  opt2.value = "BTC";
+  opt2.id = "BTC";
+  $("#toCurrency").append(opt2);
+
+  var opt3 = document.createElement('option');
+  opt3.value = "CAD";
+  opt3.id = "CAD";
+  opt3.innerText = "Canadian Dollar (CAD)";
+  $("#toCurrency").append(opt3);
+
+  var opt4 = document.createElement('option');
+  opt4.value = "EUR";
+  opt4.id = "EUR";
+  opt4.innerText = "Euro (EUR)";
+  $("#toCurrency").append(opt4);
+
+  var opt5 = document.createElement('option');
+  opt5.value = "JPY";
+  opt5.id = "JPY";
+  opt5.innerText = "Japanese Yen (JPY)";
+  $("#toCurrency").append(opt5);
+
+  var opt6 = document.createElement('option');
+  opt6.value = "USD";
+  opt6.id = "USD";
+  opt6.innerText = "United States Dollar (USD)";
+  $("#toCurrency").append(opt6);
+
+});
+
+
+// currency conversion
+// (Is there a faster way to do this??)
+
+$("#toCurrency").change(function() {
+
+  let rate = exchangeRates.rates[$("#toCurrency").val()];
+
+  let $input = $("#usdInput");
+  let $conversion = $("#usdInput").val() * rate;
+  console.log(rate);
+  $("#resultCurrency").val($conversion.toFixed(2));
+  $("#resultLabel").text(allCurrencies[$("#toCurrency").val()] + " (" + $("#toCurrency").val() + "):");
+  
+})
+
+
+// updating based on JSON object
+
+$("#updateRates").click(function() {
+
+  let $text = $("#exchangeRates").text();
+  let $json = JSON.parse($text);
+
+  console.log($json.rates);
+
+  // remove all options 
+  $("#BTC").remove();
+  $("#CAD").remove();
+  $("#EUR").remove();
+  $("#JPY").remove();
+  $("#USD").remove();
+
+ for (let i = 0; i < Object.keys($json.rates).length; i++){
+
+  let place = Object.keys($json.rates)[i]
+
+  var opt = document.createElement('option');
+  opt.value = place;
+  opt.id = place;
+  opt.innerText = allCurrencies[place] + " (" + place + ")" ;
+  $("#toCurrency").append(opt);
+  
+  }
+
+  $("#resultCurrency").val("---.--");
+  $("#resultLabel").text("To Currency ():");
+
+  exchangeRates = $json;
+
+  
+
+
+
+
+})
+

@@ -5,9 +5,15 @@ const doneButtonHtml = '<button class="doneBtn">&#x2713;</button>';
 
 $(function() {
    $("#addBtn").click(addBtnClick);
-   
+
    // TODO: Add item if user presses Enter
 
+   $("#newItemText").keydown(function(event) {
+      if (event.keyCode === 13) {
+         console.log("enter key pressed");
+         addBtnClick();
+      }
+   });
 });
 
 function addBtnClick() {
@@ -52,10 +58,22 @@ function addItem(item) {
 
 function moveItem(fromIndex, toIndex) {
    // TODO: Complete the function
+   let $items = $('li');
+   console.log($items);
+
+   let removed = $($items[fromIndex]).detach();
+   console.log("removed: " + removed);
+   if (fromIndex > toIndex){
+      $(removed).insertBefore($items[toIndex]);
+   }
+   if (fromIndex < toIndex){
+      $(removed).insertAfter($items[toIndex]);
+   }
    
 }
 
 function removeItem(index) {
    // TODO: Complete the function
-   
+   let $items = $('li');
+   $($items[index]).detach();
 }

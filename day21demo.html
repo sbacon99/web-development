@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Day 21</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+</script>
+
+<style>
+    .special {
+        background-color: rgb(148, 9, 9);
+        border: 6px dashed rgb(51, 184, 51);
+        border-radius: 50px;
+        color: white;
+        padding: 30px;
+    }
+
+    input[type="button"]{
+        display:block;
+        width: 100%;
+        background: khaki;
+        color: navy;
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+
+    input[type="text"]{
+        width: 100%;
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <h1>Day 21 - jQuery</h1>
+
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>This is a paragraph</p>
+    <p>
+        Some checkboxes:
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </p>
+    <button id="countCheckboxes">Click me</button>
+
+
+    <script>
+        // Vanilla javascript
+    //     for (let el of document.querySelectorAll("p")) {
+    //   el.classList.add("special");
+    //}
+
+    //jquery
+    $("p:eq(1)").addClass("special");
+
+    //Register an event handler for the button
+    $("#countCheckboxes").click(function(){
+        // Count how many checkboxes are checked
+        let numChecked = $("input[type=checkbox]:checked").length;
+        console.log("There are " + numChecked + " checkboxes checked!");
+
+        let newP = document.createElement("p");
+        newP.innerHTML = "There are " + numChecked + " checkboxes checked!";
+        $("body").after(newP);
+
+    });
+
+
+    // Rate Conversion
+    let $rate = $("#rate");
+    let $dollars = $("#dollars");
+    let $yen = $("#yen");
+    let rateVal = 0;
+    let dollarVal = 0;
+    let yenVal = 0;
+
+    // Click event handler
+    $("#convertBtn").click(function(){
+        console.log("convert button clicked");
+
+        // validate conversion rate
+        if ($.isNumeric($rate.val())){
+            console.log("Rate is numeric");
+            rateVal = $rate.val();
+        }
+
+        // Validate dollars
+        if($.isNumeric($dollars.val())){
+            dollarsVal = $dollars.val();
+            yenVal = dollarsVal * rateVal;
+            $yen.val(yenVal);
+        }
+        else if ($.isNumeric($yen.val())){
+            yenVal = $yen.val();
+            dollarsVal = yenVal / rateVal;
+            $dollars.val(dollarsVal);
+
+        }
+    })
+
+
+    // When the user leaves a field, make sure it's valid
+    $rate.blur(function(){
+        if(!$.isNumeric(this.value)){
+            
+        }
+    })
+
+    $dollars.blur(function(){
+        
+    })
+
+    $yen.blur(function(){
+        
+    })
+
+    </script> 
+
+
+</body>
+</html>
