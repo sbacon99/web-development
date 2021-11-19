@@ -3,54 +3,100 @@
     body {
         display: grid;
         grid-template-areas: "head head head"
-                             "nav main aside"
+                             "main main main"
+                             "nav nav nav"
+                             "aside aside aside" 
                              "foot foot foot";
-        grid-template-rows: 400px 400px 200px 50px;
+        grid-template-rows: 400px 200px 400px 200px 200px;
     }
 
-    h1 {
+    #headHeader {
         border: 10px;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: 'Courier New', Courier, monospace;
         letter-spacing: 2px;
-        color: white;
+        color: maroon;
+        font-size: 75px;
     }
 
     #headerImage {
-        margin-top: 20px;
-        margin-bottom: 10px;
         width: 200px;
         border-radius: 25px;
-    }
+        margin: 10px;
 
-    #headerDiv {
-        text-align: left;
-        margin-left: 10%;
-        display: inline-block;
-    }
-
-    #headerDiv2 {
-        display: inline-block;
-        margin-right: 10%;
     }
 
     header {
         grid-area: head;
-        background: #737272;
+        background-image: linear-gradient(#E6E6E6, #CCCCCC);
+    }
+
+    ul {
+        margin-right: 40px;
+        list-style-type: none;
+        display: flex;
+        align-items: center; 
+        justify-content: flex-end; 
+
+    }
+
+    ul>li {
+        margin: 0;
+        padding-right: 10px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    ul>li>a:hover {
+    color: maroon;
+    transition: color 1s;
+    }
+
+    #headerDivImage {
+        display: inline-block;
+        position: relative;
+        left: 15%;
+    }
+
+    #headerDivText {
+        display:inline-block;
+        position: relative;
+        left: 30%;
+        top: -100px;
     }
 
     nav {
         grid-area: nav;
-        background: khaki;
+        background-image: linear-gradient(#B5B5B5, #999999); 
+    }
+
+    #navHeader {
+        text-align: center;
+        margin-left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
     }
 
     main {
         grid-area: main;
-        background: darkseagreen;
+        background-image: linear-gradient(#CCCCCC, #B5B5B5);    
+    }
+
+    #mainHeader {
+        text-align: center;
+        margin-left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
     }
 
     aside {
         grid-area: aside;
-        background: goldenrod;
+        background-image: linear-gradient(#999999, #808080); 
+    }
+
+    #asideHeader {
+        text-align: center;
+        margin-left: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 30px;
     }
 
     footer {
@@ -61,20 +107,59 @@
 
 <body>
     <header>
-        <div id="headerDiv">
-            <img src="profile.jpeg" alt="head image" id="headerImage">
-            <h1>Sam Bacon</h1>
+        <ul>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">About Me</a></li>
+            <li><a href="#">Skills</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <div>
+            <div id="headerDivImage">
+                <img src="profile.jpeg" alt="head image" id="headerImage">
+            </div>
+            <div id="headerDivText">
+                <h1 id="headHeader">Sam Bacon</h1>
+            </div>
         </div>
-        <div id="headerDiv2">
-            <h2> About </h2>
-        </div>
-
     </header>
-    <nav>Nav</nav>
+
+
+    
+
+
     <main>
-        <h2>Main Content</h2>
+        <h1 id="mainHeader"><u>Portfolio</u></h1>
     </main>
-    <aside>Aside</aside>
+
+    <nav>
+        <h1 id="navHeader"><u>About Me</u></h1>
+
+        <p id=>
+            I am currently an undergraduate Honors Fellow at Elon University, where I am pursuing degrees in Computer Science and Statistics 
+            with a concentration in data analytics. I am also a captain of the Elon men’s soccer team, an academic tutor, 
+            and a representative on Elon’s Student-Athlete Advisory Committee.
+        </p>
+        <p>
+            Over the last few years, I have developed a passion for data gathering and analysis, working with different 
+            computer software, and the variety of ways in which the two categories overlap. These interests have sparked 
+            my current research, in which I am analyzing and creating visualization tools to help assess the normality 
+            of various datasets and distributions.
+        </p>
+        <p>
+            My involvement in athletics has helped shape me into a committed, hard-working, and goal-oriented individual. 
+            As a college student-athlete, I have already experienced the transferability of soft skills such as communication, 
+            teamwork, and leadership. I am excited to continue developing as a student, researcher, and athlete, and I am 
+            eager to apply what I have learned through these passions in the professional world of data science and analytics.</p>
+        </p>
+    </nav>
+
+
+    <aside>
+        <h1 id="asideHeader"><u>Skills</u></h1>
+    </aside>
+
+
+
     <footer>Footer</footer>
 </body>
 </html>
