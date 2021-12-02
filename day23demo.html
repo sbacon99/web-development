@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Day 24</title>
+<style>
+    /* Default layout: for mobile devices */
+    body {
+        display: grid;
+        /* grid-template-columns: 300px 500px 400px; */
+        /* grid-template-areas: "head head head"
+                             "nav main aside"
+                             "foot foot foot"; */
+        /* grid-template-columns: auto; */
+        grid-template-areas: "head"
+            "main"
+            "aside"
+            "foot";
+        grid-template-rows: 50px 400px 200px 50px;
+    }
+
+    header {
+        grid-area: head;
+        background: cornflowerblue;
+    }
+
+    nav {
+        grid-area: nav;
+        background: khaki;
+        display: none;
+    }
+
+    main {
+        grid-area: main;
+        background: darkseagreen;
+    }
+
+    aside {
+        grid-area: aside;
+        background: goldenrod;
+    }
+
+    footer {
+        grid-area: foot;
+        background: thistle;
+    }
+
+    /* Tablet layout */
+    @media all and (min-width: 600px) {
+        body {
+            /* grid-template-columns: 200px auto; */
+            grid-template-areas: 
+                "head head"
+                "nav main"
+                "aside main"
+                "foot foot";
+            grid-template-rows: 50px 400px 100px 50px;
+
+        }
+
+        nav {
+            display: block;
+        }
+
+    }
+
+    /* Desktop layout */
+    @media all and (min-width: 800px) {
+        body {
+            /* grid-template-columns: 200px auto; */
+            grid-template-areas: "head head head"
+                "nav main aside"
+                "foot foot foot";
+            grid-template-rows: 50px 400px 50px;
+
+        }
+    }
+
+    .topNav {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        display: block;
+        width: 300px;
+        height: 300px;
+        box-shadow: 20px;
+    }
+</style>
+
+<body>
+    <header>
+        <button id="showNav">
+            <img src="menu.png" height="40">
+        </button>
+        Header
+    </header>
+    <nav id="nav">Nav</nav>
+    <main>Main</main>
+    <aside>Aside</aside>
+    <footer>Footer</footer>
+
+    <script>
+        // Add a click event listener to show/hide the nav
+        let btn = document.getElementById("showNav");
+        btn.addEventListener("click", toggleMenu);
+
+        // Switch between showing and hiding the menu
+        function toggleMenu() {
+            let nav = document.getElementById("nav");
+
+            // menu is showing
+            if (nav.classList.contains("topNav")) {
+                nav.classList.remove("topNav");
+            }
+            else {
+                nav.classList.add("topNav");
+            }
+        }
+    </script>
+</body>
+
+</html>
